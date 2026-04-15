@@ -1,0 +1,53 @@
+<div class="page">
+  <div class="card">
+    <h1>
+      Log in to <br />
+      your <span>account</span>
+    </h1>
+
+    <p class="signup-text">
+      Don’t have an account?
+      <a href="#">Sign up</a>
+    </p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <input
+          type="text"
+          placeholder="Email or Phone Number"
+          class="input"
+          formControlName="email"
+        />
+        <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+          Enter a valid email
+        </small>
+      </div>
+
+      <div class="field password-field">
+        <input
+          [attr.type]="showPassword ? 'text' : 'password'"
+          placeholder="Password"
+          class="input"
+          formControlName="password"
+        />
+        <span class="toggle" (click)="togglePassword()">
+          {{ showPassword ? 'Hide' : 'Show' }}
+        </span>
+        <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+          Password is required
+        </small>
+      </div>
+
+      <button class="login-btn" [disabled]="loginForm.invalid">Log In</button>
+    </form>
+
+    <p class="forgot">Forgot password?</p>
+
+    <div class="divider"><span>or</span></div>
+
+    <button class="google-btn">
+      <img src="https://www.svgrepo.com/show/475656/google-color.svg" />
+      Sign in with Google
+    </button>
+  </div>
+</div>
