@@ -24,3 +24,25 @@ exports.login = ({ email, password }) => {
     message: "Invalid credentials",
   };
 };
+
+exports.forgot = ({ email }) => {
+  if (!email) {
+    return {
+      success: false,
+      message: "Email and password required",
+    };
+  }
+
+  if (email === USER.email) {
+    return {
+      success: true,
+      message: "email found sent a recovery link",
+      data: { email },
+    };
+  }
+
+  return {
+    success: false,
+    message: "email not found",
+  };
+};
