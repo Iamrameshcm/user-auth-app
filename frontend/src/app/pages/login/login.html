@@ -41,7 +41,7 @@
       <button class="login-btn" [disabled]="loginForm.invalid">Log In</button>
     </form>
 
-    <p class="forgot">Forgot password?</p>
+    <p (click)="forgot()" class="forgot">Forgot password?</p>
 
     <div class="divider"><span>or</span></div>
 

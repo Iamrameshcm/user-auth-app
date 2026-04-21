@@ -1,0 +1,29 @@
+<div class="page">
+  <div class="card">
+    <h1>
+      OOps <br />
+      forgot your <span>Password?</span>
+    </h1>
+
+    <p class="signup-text">
+      Don’t have an account?
+      <a href="#">Sign up</a>
+    </p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <input
+          type="text"
+          placeholder="Email or Phone Number"
+          class="input"
+          formControlName="email"
+        />
+        <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+          Enter a valid email to Recover
+        </small>
+      </div>
+
+      <button class="login-btn" [disabled]="loginForm.invalid">Recover Now...</button>
+    </form>
+  </div>
+</div>

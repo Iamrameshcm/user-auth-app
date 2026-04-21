@@ -12,4 +12,8 @@ export class Auth {
   login(data: any) {
     return this.http.post(`${this.API}/login`, data);
   }
+
+  forgot(data: any) {
+    return this.http.post(`${this.API}/forgot`, data);
+  }
 }
